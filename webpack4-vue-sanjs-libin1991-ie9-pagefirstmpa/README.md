@@ -6,7 +6,6 @@
 
 # 安装运行
 
-- node8 ??
 - 使用npm install!! -> 安装结束会报错,但并无影响
 - 全局安装一波
 
@@ -88,6 +87,10 @@ import 'console-polyfill';
 // import 'fetch-polyfill2';
 </script>
 ```
+
+# element-admin
+
+- 样式错乱 -> node v.10.13.0 + yarn
 
 # neteasecloud 
 

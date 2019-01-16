@@ -13,6 +13,7 @@ Alert.newInstance = properties => {
         }
     });
 
+    // 挂载
     const component = Instance.$mount();
     document.body.appendChild(component.$el);
 

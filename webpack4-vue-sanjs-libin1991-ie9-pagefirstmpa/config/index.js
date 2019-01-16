@@ -116,6 +116,8 @@ let sysName = [
     // 'vue/bootstrap',
     // 'vue-admin/_all',
     // 'vue-admin/index',
+
+    /* element简易后台 */
     // 'vue-admin/element',
     // 'vue-admin/d2',
     // 'vue-app/_all',
@@ -123,6 +125,8 @@ let sysName = [
     // 'vue-app/notepad',
     // 'vue-app/calculator',
     // 'vue-app/chat',
+
+    /* 一些地图组件的测试 */
     'vue-app/map',
     // 'vue-app/nreader',
     // 'vue-app/bilibili',

@@ -110,7 +110,8 @@ let webpackConfig = {
                     limit: 10000,
                     name: 'static/fonts/[name].[hash:7].[ext]'
                 },
-                // @fix 本来为了优化，但一些情况可能导致报错
+                // @fix 本来为了优化，
+                // 但一些情况可能导致报错
                 // exclude: [resolve('node_modules/font-awesome')],
             },
             {
@@ -118,7 +119,6 @@ let webpackConfig = {
                 use: ExtractTextPlugin.extract({
                     use: ['css-loader?sourceMap=false', "postcss-loader"],
                 }),
-                // include: [resolve('node_modules/font-awesome')]
             },
             {
                 test: /\.less$/,

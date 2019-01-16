@@ -1,9 +1,11 @@
 <template>
     <div>
+        <!-- 专门放插槽 -->
         <slot></slot>
     </div>
 </template>
 <script>
+
     import {findComponentsDownward} from '../../utils/assist.js';
     import Emitter from '../../mixins/emitter.js';
 
