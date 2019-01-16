@@ -60,6 +60,7 @@ let webpackConfig = {
                 loader: 'vue-loader',
                 options: {
                     loaders: {
+                        // @deprecated
                         css: ExtractTextPlugin.extract({ use: ['css-loader?minimize&sourceMap=false', 'postcss-loader'] }),
                         less: ExtractTextPlugin.extract({ use: ['css-loader?minimize&sourceMap=false', 'postcss-loader', "less-loader" ] }),
                         sass: ExtractTextPlugin.extract({ use: ['css-loader?minimize&sourceMap=false', 'postcss-loader', "sass-loader" ] }),
@@ -109,13 +110,15 @@ let webpackConfig = {
                     limit: 10000,
                     name: 'static/fonts/[name].[hash:7].[ext]'
                 },
-                exclude: [resolve('node_modules/font-awesome')],
+                // @fix 本来为了优化，但一些情况可能导致报错
+                // exclude: [resolve('node_modules/font-awesome')],
             },
             {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     use: ['css-loader?sourceMap=false', "postcss-loader"],
                 }),
+                // include: [resolve('node_modules/font-awesome')]
             },
             {
                 test: /\.less$/,

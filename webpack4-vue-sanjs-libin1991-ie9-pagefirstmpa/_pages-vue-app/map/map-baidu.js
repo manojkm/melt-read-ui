@@ -3,7 +3,9 @@
 import Vue from 'vue'
 import App from './AppBaidu'
 import router from './router'
-import "font-awesome/css/font-awesome.min.css"
+
+require("font-awesome/less/font-awesome.less")
+
 
 Vue.config.productionTip = false
 

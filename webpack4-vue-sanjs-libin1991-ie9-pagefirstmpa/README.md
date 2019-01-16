@@ -1,14 +1,27 @@
 # README
 
-- webpack刚开始写时的配置文件没配好, 只作学习用...
-    
-    - ddl
-    - happypack
-    - ...    
-    
+- 配置文件没配好, 现在只作学习用...
+- 复杂的项目约定大于配置？？
+
+
+# 安装运行
+
+- node8 ??
+- 使用npm install!! -> 安装结束会报错,但并无影响
+- 全局安装一波
+
+```shell
+cnpm install -g node-gyp
+```
+
+# 常见问题
+
 - 分工程跑不起来，八成是路由的问题...
 - html里引用static内容注意相对路径 ../../static
-- 零配置真扯淡， 复杂的项目不可能约定大于配置...
+- main.js 引用css报错 -> 引用less/sass
+
+# San.js兼容
+
 - 打包的内容才可能兼容IE8，开发时因为要支持热更新，IE运行起来是不兼容的
 - san.js @deprecated
 
@@ -76,51 +89,6 @@ import 'console-polyfill';
 </script>
 ```
 
-- 备份内容
-
-```
-// .babelrc
-{
-  "presets": [
-    ["env", {
-      "modules": false,
-      "targets": {
-        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
-      }
-    }],
-    "stage-2"
-  ],
-  "plugins": ["transform-runtime"]
-}
-
-// ie8
-{
-  "presets": [
-    ["env", {
-      "modules": false,
-      "targets": {
-        "browsers": ["last 2 versions", "ie >= 7"]
-      }
-    }]
-  ],
-  "plugins": [
-    "transform-runtime",
-    "transform-es2015-modules-simple-commonjs",
-    "babel-plugin-transform-es3-member-expression-literals",
-    "babel-plugin-transform-es3-property-literals"
-  ]
-}
-```
-
-# 问题
-
-- npm install 安装会中途报错,但并不影响... ??
-- 全局安装一波
-
-```shell
-cnpm install -g node-gyp
-```
-
 # neteasecloud 
 
 - router require().default https://www.cnblogs.com/legendjslc/p/9041804.html
@@ -129,3 +97,5 @@ cnpm install -g node-gyp
 # muse-ui 为旧版本 
 cnpm install -S muse-ui@2.1.0
 ```
+
+# map
