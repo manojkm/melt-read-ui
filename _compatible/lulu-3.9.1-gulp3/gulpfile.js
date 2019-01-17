@@ -3,7 +3,6 @@ var sass = require('gulp-sass');
 //清空文件
 var clean = require('gulp-clean');
 
-// 或者之前的modern
 var theme = 'peak';
 
 var path = {
