@@ -43,6 +43,7 @@
             },
             change(data) {
                 this.currentValue = data;
+
                 this.$emit('input', data);
                 this.$emit('on-change', data);
                 this.dispatch('iFormItem', 'on-form-change', data);

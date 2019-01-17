@@ -1,6 +1,7 @@
 <template>
     <label>
         <span>
+
             <input
                     v-if="group"
                     type="checkbox"
@@ -8,13 +9,16 @@
                     :value="label"
                     v-model="model"
                     @change="change">
+
             <input
                     v-else
                     type="checkbox"
                     :disabled="disabled"
                     :checked="currentValue"
                     @change="change">
+
         </span>
+
         <slot></slot>
     </label>
 </template>
@@ -30,10 +34,16 @@
                 type: Boolean,
                 default: false
             },
+            // 值
+            label: {
+                type: [String, Number, Boolean]
+            },
             value: {
                 type: [String, Number, Boolean],
                 default: false
             },
+
+            // 赋值的范围 -> 用于类型判断
             trueValue: {
                 type: [String, Number, Boolean],
                 default: true
@@ -42,14 +52,13 @@
                 type: [String, Number, Boolean],
                 default: false
             },
-            label: {
-                type: [String, Number, Boolean]
-            }
         },
         data() {
             return {
+                // 当前值 表单单独
                 currentValue: this.value,
                 model: [],
+                // 是否有父元素
                 group: false,
                 parent: null,
             };
@@ -91,6 +100,7 @@
             },
         },
         watch: {
+            // 监听checkbox的值
             value(val) {
                 if (val === this.trueValue || val === this.falseValue) {
                     this.updateModel();

@@ -3,6 +3,9 @@ function findComponentUpward(context, componentName) {
     let parent = context.$parent;
     let name = parent.$options.name;
 
+    // 终止条件
+    // 1.往上没有父元素了
+    // 2.已找到该元素 (name存在并一致)
     while (parent && (!name || [componentName].indexOf(name) < 0)) {
         parent = parent.$parent;
         if (parent) name = parent.$options.name;
@@ -13,6 +16,7 @@ function findComponentUpward(context, componentName) {
 export {findComponentUpward};
 
 // 由一个组件，向上找到所有的指定组件
+// 递归 @deprecated -> 菜单组件
 function findComponentsUpward(context, componentName) {
     let parents = [];
     const parent = context.$parent;
@@ -73,6 +77,7 @@ function findBrothersComponents(context, componentName, exceptMe = true) {
 
 export {findBrothersComponents};
 
+// 判断类型 -> 返回结构字符串
 function typeOf(obj) {
     const toString = Object.prototype.toString;
     const map = {
@@ -100,14 +105,18 @@ function deepCopy(data) {
     } else if (t === 'object') {
         o = {};
     } else {
+        // 不是数组和对象都不是引用共享的
+        // 直接返回
         return data;
     }
 
     if (t === 'array') {
+        // push
         for (let i = 0; i < data.length; i++) {
             o.push(deepCopy(data[i]));
         }
     } else if (t === 'object') {
+        // ['x'] 赋值
         for (let i in data) {
             o[i] = deepCopy(data[i]);
         }
