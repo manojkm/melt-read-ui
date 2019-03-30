@@ -47,6 +47,7 @@
         },
         methods: {
             handleExpand() {
+                // 不一定含有 expand -> 响应式
                 this.$set(this.data, 'expand', !this.data.expand);
 
                 if (this.tree) {
@@ -71,9 +72,11 @@
             }
         },
         watch: {
+            //
             'data.children': {
                 handler(data) {
                     if (data) {
+                        // 当前子节点是否都被选中了
                         const checkedAll = !data.some(item => !item.checked);
                         this.$set(this.data, 'checked', checkedAll);
                     }
